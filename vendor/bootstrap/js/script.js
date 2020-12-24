@@ -1,3 +1,3 @@
 $(function() {
-    $("row_items").hide()
+    $("#row_items").hide();
 })
