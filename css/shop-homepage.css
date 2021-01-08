@@ -25,3 +25,16 @@ body {
   display: block;
   margin-bottom: 10px;
 }
+
+.price{
+  float:left
+}
+.sale-price{
+  float: right;
+}
+.card-title{
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
