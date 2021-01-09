@@ -38,15 +38,14 @@ $(function() {
     }
 })
 
-function cloneHTML(title,img,price, id, link) {
+function cloneHTML(title,img,price, sale, link) {
     var template = document.getElementById("row_template").content;
     var copyHTML = document.importNode(template, true);
 
     copyHTML.querySelector(".card-title").textContent = title
     copyHTML.querySelector("img").src = img
     copyHTML.querySelector(".price").textContent = '£'+price
-    copyHTML.querySelector(".card-text").textContent = id
-    copyHTML.querySelector(".card-text").textContent = id
+    copyHTML.querySelector(".sale-price").textContent = '£'+sale
     copyHTML.querySelector("a").href = link
 
     document.getElementById("row_container").appendChild(copyHTML);
@@ -63,7 +62,7 @@ function loadData(event){
             var list_items = dict_key.key.Items
             for(var i=0;i<list_items.length;i++){
                 each_item = list_items[i]
-                cloneHTML(each_item.product_name,each_item.aw_image_url, each_item.store_price, each_item.aw_product_id, each_item.aw_deep_link)
+                cloneHTML(each_item.product_name,each_item.aw_image_url, each_item.store_price, each_item.search_price, each_item.aw_deep_link)
             }
             if (res.LastEvaluatedKey == undefined){
                 $('#loadmore').hide()
