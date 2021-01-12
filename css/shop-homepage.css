@@ -38,3 +38,6 @@ body {
   text-overflow: ellipsis;
   max-width: 300px;
 }
+.spinner-border{
+  margin-bottom: 20px;
+}

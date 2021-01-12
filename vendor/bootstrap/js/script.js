@@ -53,6 +53,7 @@ function cloneHTML(title,img,price, sale, link) {
 
 function loadData(event){
     retailer_name = event['target']['text'];
+    $('.spinner-border').show()
     $.ajax({
         url:`https://mu4nuejt68.execute-api.eu-west-1.amazonaws.com/v2/data?retailer=${retailer_name}`,
         type:"GET",
@@ -70,6 +71,7 @@ function loadData(event){
             else{
                 $('#loadmore').show()
             }
+            $('.spinner-border').hide()
         },
         error: function(err){
             console.log(err)
@@ -85,6 +87,7 @@ function loadMore(){
 }
 
 function callNextApi(retailer,id){
+    $('#loadmore').text('Loading...')
     $.ajax({
         url:`https://mu4nuejt68.execute-api.eu-west-1.amazonaws.com/v2/paginate?retailer=${retailer}&id=${id}`,
         type:"GET",
@@ -102,6 +105,7 @@ function callNextApi(retailer,id){
             else{
                 $('#loadmore').show()
             }
+            $('#loadmore').text('Loadmore')
         },
         error: function(err){
             console.log(err)
