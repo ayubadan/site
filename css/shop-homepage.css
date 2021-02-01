@@ -14,6 +14,8 @@ body {
   .sale-price{margin-right: 90px;}
 }
 @media screen and (min-width: 769px) {
+  #content-desktop {display: block;}
+  #content-mobile {display: none;}
   .price{margin-left: 10px;}
   .sale-price{margin-right: 10px;}
 }
