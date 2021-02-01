@@ -7,13 +7,15 @@ body {
   padding-top: 56px;
 }
 
-#content-desktop {display: block;}
-#content-mobile {display: none;}
-
 @media screen and (max-width: 768px) {
   #content-desktop {display: none;}
   #content-mobile {display: block;}
-
+  .price{margin-left: 90px;}
+  .sale-price{margin-right: 90px;}
+}
+@media screen and (min-width: 769px) {
+  .price{margin-left: 10px;}
+  .sale-price{margin-right: 10px;}
 }
 
 #content-mobile{
@@ -27,10 +29,13 @@ body {
 }
 
 .price{
-  float:left
+  float:left;
+  text-decoration:line-through;
+  white-space: nowrap;
 }
 .sale-price{
   float: right;
+  color: red;
 }
 .card-title{
   height: 60px;

@@ -51,6 +51,10 @@ function cloneHTML(title,img,price, sale, link) {
     document.getElementById("row_container").appendChild(copyHTML);
 }
 
+function displayData(each_item){
+    cloneHTML(each_item.product_name,each_item.merchant_image_url, each_item.store_price, each_item.search_price, each_item.aw_deep_link)
+}
+
 function loadData(event){
     retailer_name = event['target']['text'];
     $('.spinner-border').show()
@@ -63,8 +67,7 @@ function loadData(event){
             var list_items = dict_key.key.Items
             for(var i=0;i<list_items.length;i++){
                 each_item = list_items[i]
-                cloneHTML(each_item.product_name,each_item.aw_image_url, each_item.store_price, each_item.search_price, each_item.aw_deep_link)
-            }
+                displayData(each_item)            }
             if (res.LastEvaluatedKey == undefined){
                 $('#loadmore').hide()
             }
@@ -97,8 +100,7 @@ function callNextApi(retailer,id){
             var list_items = dict_key.key.Items
             for(var i=0;i<list_items.length;i++){
                 each_item = list_items[i]
-                cloneHTML(each_item.product_name,each_item.aw_image_url, each_item.store_price)
-            }
+                displayData(each_item)             }
             if (res.LastEvaluatedKey == undefined){
                 $('#loadmore').hide()
             }
